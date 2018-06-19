@@ -41,7 +41,8 @@ RUN apt-get update \
     && docker-php-ext-install sockets \
     && docker-php-ext-install gettext \
     && pecl install swoole \
-    && docker-php-ext-enable swoole \
+    #&& docker-php-ext-enable swoole \
+    && docker-php-ext-enable swoole.so \
     && docker-php-ext-install shmop \
     && docker-php-ext-install sysvmsg \
     && docker-php-ext-install sysvsem \
@@ -101,4 +102,4 @@ RUN apt-get update \
     #&& docker-php-ext-install ldap \
 
 # Composer
-#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer 

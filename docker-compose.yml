@@ -5,7 +5,7 @@ services:
     container_name: dnmp-nginx
     ports:
       - "80:80"
-      - "443:443"
+      - "443:443"  
     volumes:
       - ./www/:/var/www/html/:rw
       - ./conf/conf.d:/etc/nginx/conf.d/:ro
@@ -17,6 +17,8 @@ services:
   php:
     build: ./php/php72/
     container_name: dnmp-php
+    ports:
+            - "9501:9501"     
     expose:
       - "9000"
     volumes:
@@ -50,7 +52,6 @@ services:
       - net-redis
     ports:
       - "6379:6379"
-
 networks:
   net-php:
   net-mysql:
